@@ -1,7 +1,7 @@
 <template>
 <div>
     <v-subheader>Aujourd'hui</v-subheader>
-    <v-card class="elemStyle pa-5 ma-5" height="30vh">
+    <v-card class="elemStyle pa-5 mx-5" height="30vh">
             <v-card class="d-flex pa-5 ma-5" >
                 <v-icon>{{ icon }}</v-icon>
                 <v-subheader>16h30 - 16h50</v-subheader>

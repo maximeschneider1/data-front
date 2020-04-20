@@ -3,13 +3,13 @@
     <v-content fluid>
       <v-container class="container">
         <Header></Header>
-        <div class="d-flex justify-space-between">
-          <div class="aaa" >
+        <div class="d-md-flex d-xs-flex-column justify-space-between">
+          <div class="cols-12 d-xs-cols-12" >
             <ScoringOverview></ScoringOverview>
             <Planning></Planning>
 <!--            <v-card class="pa-5 ma-5"><v-card-text class="max">Module planning</v-card-text></v-card>-->
           </div>
-          <div class="uuu">
+          <div >
               <Informations></Informations>
             <Alerts></Alerts>
 <!--            <v-card class="pa-5 ma-5">Alerte clients</v-card>-->
@@ -53,7 +53,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-  .container {
+  /* .container {
     height: 100vh;
   }
   .uuu {
@@ -61,5 +61,5 @@
   }
   .aaa {
     width: 60%;
-  }
+  } */
 </style>

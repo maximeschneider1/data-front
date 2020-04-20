@@ -1,13 +1,12 @@
 <template>
   <v-content>
     <v-container class="container">
-
       <v-row>
         <v-col cols="3">
-          <InfoClientName></InfoClientName>
+          <InfoLeadName></InfoLeadName>
         </v-col>
         <v-col cols="5">
-          <InfoClient></InfoClient>
+          <InfoLead></InfoLead>
         </v-col>
         <v-col cols="3">
           <Alerts></Alerts>
@@ -15,12 +14,10 @@
       </v-row>
 
       <v-row>
-        <v-col cols="6">
-          <ScoringOverview></ScoringOverview>
-        </v-col>
+
 
         <v-col cols="4">
-          <KPIClients></KPIClients>
+          <KPILead></KPILead>
         </v-col>
 
         <v-col cols="5">
@@ -58,12 +55,12 @@
               </div>
             </v-row>
           </v-card>
+        
         </v-col>
-
-        <v-col cols="5">
-          <NoteClients></NoteClients>
+        <v-col cols="4">
+          <NoteLead></NoteLead>
         </v-col>
-
+        <v-col cols="3"><Tag></Tag></v-col>
       </v-row>
       <!-- class="justify-center" -->
       <v-container class="py-0">
@@ -100,36 +97,27 @@
           </template>
         </v-list>
       </v-card>
+
       <!-- <Chat></Chat> -->
     </v-container>
   </v-content>
 </template>
-
-
-
-
-
-
-
-
-
-
 <script>
 // import Chat from "../components/Chat";
 import Alerts from "../components/Home/Alerts";
-import ScoringOverview from "../components/Home/ScoringOverview";
-import InfoClient from "../components/Clients/InformationsClients";
-import InfoClientName from "../components/Clients/InformationsClientsName";
-import KPIClients from "../components/Clients/KpiClient";
-import NoteClients from "../components/Clients/NoteClients"
+import InfoLead from "../components/Leads/InformationsLead";
+import InfoLeadName from "../components/Leads/InformationsLeadName";
+import KPILead from "../components/Leads/KpiLead";
+import NoteLead from "../components/Leads/NoteLead";
+import Tag from "../components/Tag";
 export default {
   components: {
     Alerts,
-    ScoringOverview,
-    InfoClient,
-    InfoClientName, 
-    KPIClients, 
-    NoteClients
+    InfoLead,
+    InfoLeadName,
+    KPILead,
+    NoteLead, 
+    Tag
     // Chat
   },
   data: () => ({

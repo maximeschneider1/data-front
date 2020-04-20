@@ -3,24 +3,24 @@
     <v-subheader>Informations</v-subheader>
     <div>
         <v-row class="row">
-            <v-card class="pa-5 ma-5" width="40%">
+            <v-card class="pa-5 ma-5 ">
                 <v-icon>{{ icon }}</v-icon>
                 <h3>22</h3>
                 <v-subheader>Démarches clients</v-subheader>
             </v-card>
-            <v-card class="pa-5 ma-5" width="40%">
+            <v-card class="pa-5 ma-5 ">
                 <v-icon>{{icon }}</v-icon>
                 <h3>22</h3>
                 <v-subheader>Démarches clients</v-subheader>
             </v-card>
         </v-row>
         <v-row>
-            <v-card class="pa-5 ma-5" width="40%">
+            <v-card class="pa-5 ma-5 ">
                 <v-icon>{{icon }}</v-icon>
                 <h3>22</h3>
                 <v-subheader>Démarches clients</v-subheader>
             </v-card>
-            <v-card class="pa-5 ma-5" width="40%">
+            <v-card class="pa-5 ma-5">
                 <v-icon>{{icon }}</v-icon>
                 <h3>22</h3>
                 <v-subheader>Démarches clients</v-subheader>

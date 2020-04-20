@@ -1,17 +1,17 @@
 <template>
     <div>
         <v-subheader>Alertes client</v-subheader>
-        <v-card class="pa-5">
-            <v-list >
+        <v-card class="px-5 overflow-auto" height="30vh">
+            <v-list>
                 <v-list-item v-for="(item, io) in items" :key="io">
 <!--                    <v-card>-->
                         <v-list-item-icon>
                             <v-icon>{{ item.icon }}</v-icon>
                         </v-list-item-icon>
 
-                        <p >
-                            <v-list-item-title>{{ item.text }}</v-list-item-title>
-                        </p >
+                        
+                        <v-list-item-title>{{ item.text }}</v-list-item-title>
+                        
 
                 </v-list-item>
             </v-list>
