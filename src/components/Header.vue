@@ -1,12 +1,15 @@
 <template>
     <v-row>
-        <v-card
-                elevation="0"
-        ><v-subheader>Lundi 30 mars 2020</v-subheader></v-card>
+
+        <v-subheader>Lundi 30 mars 2020</v-subheader>
         <v-spacer></v-spacer>
-        <v-card
-                elevation="0"
-        ><v-subheader>Jean Michel</v-subheader></v-card>
+       <v-subheader>Jean Michel</v-subheader>
+        <v-avatar>
+      <img
+        src="../assets/coffin-man.png"
+        alt="John"
+      >
+    </v-avatar>
     </v-row>
 </template>
 

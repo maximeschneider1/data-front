@@ -32,17 +32,24 @@
   }
 </script>
 
-<style lang="scss">
+
+<style>
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: 'Lato', serif;
+    /* font-size: 10px; */
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
   text-align: center;
-  color: #2c3e50;
+  /* color: #2c3e50; */
+  background-color: #F8F8F8; 
 }
 
 #nav {
-  padding: 30px;
+  /* padding: 30px;
 
   a {
     font-weight: bold;
@@ -51,6 +58,6 @@
     &.router-link-exact-active {
       color: #42b983;
     }
-  }
+  } */
 }
 </style>

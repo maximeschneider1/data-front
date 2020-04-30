@@ -1,17 +1,22 @@
 <template>
     <div>
-        
-        <v-card class="" v-if="isLoaded">
-        <v-subheader @click="tellme()">Tendance client</v-subheader>
+        <v-subheader>Scoring de vos leads</v-subheader>
+        <v-card class="pa-5 mx-5" v-if="isLoaded">
 <!--            <v-card-text class="max">Scoring overview</v-card-text>-->
             <!-- <v-img
                     :src="require('/Users/max/data-front/src/assets/maquettecrm.png')"
                     class="my-3"
                     contain
             /> -->
-                  <apexchart type="area" height="300" :options="chartOptions" :series="series"></apexchart>
+                  <apexchart type="bar" height="270"  :options="chartOptions" :series="series"></apexchart>
 
             
+        </v-card>
+        <v-card v-else class="px-5 ma-5" height="350">
+           <!-- <v-skeleton-loader
+      height="350"
+      type="image"
+    ></v-skeleton-loader> -->
         </v-card>
     </div>
 </template>
@@ -27,58 +32,62 @@ Vue.use(VueApexCharts)
 Vue.component('apexchart', VueApexCharts)
 
 export default {
- name: 'ScoringOverview',
-//  props: [
-//    'client_id'
-//  ], 
+ name: 'ScoringLead',
+ 
  data: function () {
   return {
    chartOptions: {
-    chart: {
-        toolbar: false, 
-        id: 'vuechart',
-    },
-    xaxis: {
-      categories: ["Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre"],
-    },
+    series: [{
+          data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+        }],
+          chart: {
+          type: 'bar',
+
+          toolbar: false, 
+        },
+        plotOptions: {
+          bar: {
+            horizontal: true,
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        xaxis: {
+          categories: ['Score 1', 'Score 2', 'Score 3', 'Score 4', 'Score 5',
+          ],
+        }
    },
-   isLoaded: false, 
+   isLoaded: false,
+   
    series: [{
             name: 'FromGenToConsumer',
-            data: []
+            data: [100, 200, 600, 400]
           },
         //    {
         //     name: 'FromGenToGrid',
         //     data: []
         //   }, 
           {
-            name: 'FromGridToConsumer',
-            data: []
+            // name: 'FromGridToConsumer',
+            // data: []
           },],
   }
  },
- beforeMount() {
-    if (!this.client_id) {
-       /* eslint-disable no-console */
-    console.log("ont att")
-    } else {
-/* eslint-disable no-console */
-    console.log("ont gooooo")
-    }
- }, 
- 
- mounted() {
-   /* eslint-disable no-console */
-    console.log("client id est", this.client_id)
-     axios.get('http://localhost:8085/details/production/' + this.$route.params.id, {
+ beforeCreate() {
+
+     axios.get('http://localhost:8085/details/production/1', {
                 headers: {
                   'content-Type': 'application/json',
                   "Accept": "/",
                 },
               },
       ).then(response => {
-        this.series[0].data = response.data.FromGenToConsumer
-        this.series[1].data = response.data.FromGridToConsumer
+        /* eslint-disable no-console */
+        console.log(response.data.FromGenToConsumer)
+        // this.series[0].data = response.data.FromGenToConsumer
+        //this.series[1].data = response.data.FromGenToGrid 
+        // this.series[1].data = response.data.FromGridToConsumer
 
         this.isLoaded = true;
 
@@ -89,10 +98,6 @@ export default {
       })
  },
  methods: {
-   tellme(){
-     /* eslint-disable no-console */
-    console.log("tell me if ", this.client_id)
-   }
     
  }, 
 }
@@ -103,6 +108,5 @@ export default {
     .yes {
         /*height: available;*/
     }
-    
 
 </style>

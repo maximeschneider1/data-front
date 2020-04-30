@@ -1,54 +1,140 @@
 <template>
-    <div>
-        <v-subheader>Alertes client</v-subheader>
-        <v-card class="px-5 overflow-auto" height="30vh">
-            <v-list>
-                <v-list-item v-for="(item, io) in items" :key="io">
-<!--                    <v-card>-->
-                        <v-list-item-icon>
-                            <v-icon>{{ item.icon }}</v-icon>
-                        </v-list-item-icon>
+<div>
+  <!-- <div class="" v-if="isDetail===detail">
+    <v-card class="px-5 overflow-auto" :class="detail">
+      <v-subheader>Alertes client</v-subheader>
+      <v-row class="d-flex justify-space-around" v-for="(item, io) in items" :key="io">
+        <v-row class="white-row" v-if="io % 2 == 0">
+          <v-icon class="ml-5">mdi-bell-outline</v-icon>
+          <div class="alert-text-wrapper" @click="linkToClient(item)">
+            <v-subheader>{{item.motif}}</v-subheader>
+          </div>
+          <v-btn icon>
+            <v-icon @click="deleteItem(item)">mdi-trash-can-outline</v-icon>
+          </v-btn>
+        </v-row>
 
-                        
-                        <v-list-item-title>{{ item.text }}</v-list-item-title>
-                        
+        <v-row class="color-row" v-if="io % 2 != 0">
+          <v-icon class="ml-5">mdi-bell-outline</v-icon>
+          <div class="alert-text-wrapper" @click="linkToClient(item)">
+            <v-subheader>{{item.motif}}</v-subheader>
+          </div>
+          <v-btn icon>
+            <v-icon @click="deleteItem(item)">mdi-trash-can-outline</v-icon>
+          </v-btn>
+        </v-row>
+      </v-row>
+    </v-card>
+  </div> -->
 
-                </v-list-item>
-            </v-list>
-        </v-card>
-    </div>
+  
+  <div class="">
+    <!-- <v-subheader>Alertes client</v-subheader> -->
+    <v-card class="px-5 overflow-auto" :class="isDetail">
+      <v-row class="d-flex justify-space-around" v-for="(item, io) in items" :key="io">
+        <v-row class="white-row" v-if="io % 2 == 0">
+          <v-icon class="ml-5">mdi-bell-outline</v-icon>
+          <div class="alert-text-wrapper" @click="linkToClient(item)">
+            <v-subheader>{{item.motif}}</v-subheader>
+          </div>
+          <v-btn icon>
+            <v-icon @click="deleteItem(item)">mdi-trash-can-outline</v-icon>
+          </v-btn>
+        </v-row>
+
+        <v-row class="color-row" v-if="io % 2 != 0">
+          <v-icon class="ml-5">mdi-bell-outline</v-icon>
+          <div class="alert-text-wrapper" @click="linkToClient(item)">
+            <v-subheader>{{item.motif}}</v-subheader>
+          </div>
+          <v-btn icon>
+            <v-icon @click="deleteItem(item)">mdi-trash-can-outline</v-icon>
+          </v-btn>
+        </v-row>
+      </v-row>
+    </v-card>
+  </div>
+  </div>
 </template>
 
 
 <script>
+import axios from "axios";
+export default {
+  name: "Alerts",
+  props: ["isDetail"],
 
-    export default {
-        name: 'Alerts',
+  components: {},
 
-        components: {
-        },
+  data: () => ({
+    detail : this.props.isDetail, 
+    alert: "mdi-bell",
+    delete: "mdi-delete",
+    items: []
+  }),
 
-        data: () => ({
-                items: [
-                    { text: 'Vous avez 3 nouveaux clients en score 6', icon: 'mdi-clock'},
-                    { text: 'Vous avez 3 nouveaux clients en score 6', icon: 'mdi-clock'},
-                    { text: 'Vous avez 3 nouveaux clients en score 6', icon: 'mdi-clock'},
-                    { text: 'Vous avez 3 nouveaux clients en score 6', icon: 'mdi-clock'},
-                    { text: 'Vous avez 3 nouveaux clients en score 6', icon: 'mdi-clock'},
-                ],
-            }
-
-        ),
-
-        methods: {
+  beforeCreate() {
+    axios
+      .get("http://localhost:8085/alerts/5", {
+        headers: {
+          "content-Type": "application/json",
+          Accept: "/"
         }
+      })
+      .then(response => {
+        this.items = response.data;
+      });
+  },
+
+  methods: {
+    deleteItem(item) {
+      for (var i = 0; i < this.items.length; i++) {
+        if (this.items[i].alert_id === item.alert_id) {
+          this.items.splice(i, 1);
+        }
+      }
+    },
+    linkToClient(item) {
+      /* eslint-disable no-console */
+      console.log("Ligne :", item);
+      window.location.href = "/client-detail/" + item.client_id;
     }
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    /*.structurer {*/
-    /*    width: 40%;*/
-    /*}*/
+.alert-text-wrapper {
+  margin-right: 10%;
+  text-align: left;
+  width: 70%;
+  overflow: hidden;
+}
 
+.color-row {
+  justify-content: space-around;
+  margin: 5px;
+  margin-left: 0px;
+  background-color: aliceblue;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.white-row {
+  justify-content: space-around;
+  margin: 5px;
+  margin-left: 0px;
+  /* background-color: aliceblue; */
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.detail {
+  height: 30vh;
+}
+
+.overview {
+  height: 50vh;
+}
 </style>

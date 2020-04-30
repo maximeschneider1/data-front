@@ -2,21 +2,20 @@
   <v-content>
     <v-container>
       <Header></Header>
-
       <div class="d-md-flex d-xs-flex-column">
         <v-col cols="5">
-          <Alerts isDetail="overview"></Alerts>
+          <ScoringLead></ScoringLead>
         </v-col>
 
         <v-spacer></v-spacer>
         <v-col cols="7">
           <Todo></Todo>
         </v-col>
-      </div>
 
+      </div>
       <v-card class="pa-5 ma-5">
         <v-card-title>
-          Liste de vos clients
+          Liste de vos prospects
           <v-spacer></v-spacer>
           <v-text-field
             v-model="search"
@@ -26,28 +25,22 @@
             hide-details
           ></v-text-field>
         </v-card-title>
-        <v-data-table
-          class="dataTable"
-          :headers="headers"
-          :items="clients"
-          @click:row="handleClick"
-          :search="search"
-        ></v-data-table>
+        <v-data-table class="dataTable" :headers="headers" :items="clients" @click:row="handleClick" :search="search"></v-data-table>
       </v-card>
     </v-container>
   </v-content>
 </template>
+
 <script>
 import Header from "../components/Header";
-import axios from "axios";
-import Alerts from "../components/Home/Alerts";
+import ScoringLead from "../components/Leads/ScoringLeadGraph";
 import Todo from "../components/Todo";
-
 export default {
-  name: "Clients",
-  components: {
-    Header,
-    Alerts,
+
+    name: 'Prospects', 
+    components: {
+    Header, 
+    ScoringLead, 
     Todo
   },
 
@@ -63,43 +56,36 @@ export default {
         },
         { text: "Nom", value: "nom" },
         { text: "Phone", value: "phone" },
-        { text: "Ville", value: "challengesDone" },
-        { text: "Score Client", value: "address" }
-        // { text: 'Actions', value: 'actions', sortable: false },
-        // { text: "Iron (%)", value: "iron" }
+        { text: "Ville", value: "ville" },
+        { text: "Etat de la démarche", value: "etat" },
+        { text: "Score lead", value: "score" },
       ],
       clients: [
         {
-          // protein: 4.0,
-          // iron: "1%"
+          nom: "Jean Patie", 
+          phone: "06267678", 
+          ville: "Reims", 
+          etat : "En cours", 
+          score: "4", 
         }
-      ]
+      ], 
     };
+    
   },
   methods: {
     handleClick(value) {
       /* eslint-disable no-console */
-      console.log("Ligne :", value.client_id);
-      window.location.href = "/client-detail/" + value.client_id;
+       console.log("Ligne :", value);
+      window.location.href = "/prospects/detail";
     }
   },
-  mounted() {
-    axios
-      .get("http://localhost:8085/clients/1", {
-        headers: {
-          "content-Type": "application/json",
-          Accept: "/"
-        }
-      })
-      .then(response => {
-        this.clients = response.data;
-      });
-  }
-};
+
+}
 </script>
 
 <style>
 .dataTable {
   cursor: pointer;
 }
+
 </style>

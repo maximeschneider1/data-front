@@ -3,18 +3,18 @@
     <v-content fluid>
       <v-container class="container">
         <Header></Header>
-        <div class="d-md-flex d-xs-flex-column justify-space-between">
-          <div class="cols-12 d-xs-cols-12" >
-            <ScoringOverview></ScoringOverview>
-            <Planning></Planning>
-<!--            <v-card class="pa-5 ma-5"><v-card-text class="max">Module planning</v-card-text></v-card>-->
-          </div>
-          <div >
-              <Informations></Informations>
-            <Alerts></Alerts>
-<!--            <v-card class="pa-5 ma-5">Alerte clients</v-card>-->
-          </div>
-        </div>
+        <Informations></Informations>
+       <div class="d-md-flex d-xs-flex-column">
+        <v-col cols="5">
+          <Alerts isDetail=overview></Alerts>
+        </v-col>
+
+        <v-spacer></v-spacer>
+        <v-col cols="7">
+          <Todo></Todo>
+        </v-col>
+
+      </div>
       </v-container>
     </v-content>
 
@@ -23,21 +23,19 @@
 
 
 <script>
-  import ScoringOverview from "../components/Home/ScoringOverview";
   import Informations from "../components/Home/Informations";
   import Alerts from "../components/Home/Alerts";
-  import Planning from "../components/Home/Planning";
   import Header from "../components/Header";
+  import Todo from "../components/Todo";
 
   export default {
     name: 'Home',
 
     components: {
       Header,
-      ScoringOverview,
       Informations,
       Alerts,
-      Planning,
+      Todo, 
     },
 
     data: () => ({

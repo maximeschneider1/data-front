@@ -1,7 +1,7 @@
 <template>
-  <v-card class="pa-2 ma-2">
+  <v-card class="pa-2">
             <v-card-subtitle>Info </v-card-subtitle>
-            <v-textarea></v-textarea>
+            <v-textarea height="100" background-color="grey lighten-2"></v-textarea>
           </v-card>
 </template>
 

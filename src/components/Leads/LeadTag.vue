@@ -1,5 +1,5 @@
 <template>
-  <v-card class="pa-5 overflow-auto" max-height="250">
+  <v-card class="pa-5 overflow-auto" height="40vh">
     <v-row>
       <v-card-subtitle>Tags client</v-card-subtitle>
       <v-spacer></v-spacer>
@@ -7,7 +7,7 @@
     </v-row>
     <div class="d-flex flex-wrap">
       <v-list v-for="(items, i) in items" :key="i">
-        <v-chip class="pa-2 ma-2" v-text="items.text"></v-chip>
+        <v-chip class="pa-2 ma-2" v-text="items.TagContent"></v-chip>
       </v-list>
     </div>
 
@@ -30,42 +30,36 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  name: "Tag",
+  name: "LeadTag",
 
   data() {
     return {
       newTag: '',
       items: [
-        {
-          id: 1,
-          text: "Nature",
-          icon: "mdi-nature"
-        },
-        {
-          id: 2,
-          text: "Nightlife",
-          icon: "mdi-glass-wine"
-        },
-        {
-          id: 3,
-          text: "Nightlife",
-          icon: "mdi-glass-wine"
-        },
-        {
-          id: 4,
-          text: "Nightlife",
-          icon: "mdi-glass-wine"
-        }
+      
       ],
       dialog: false
     };
   },
+
+  mounted() {
+    axios
+      .get("http://localhost:8085/leads/tags/1", {
+        headers: {
+          "content-Type": "application/json",
+          Accept: "/"
+        }
+      })
+      .then(response => {
+        this.items = response.data;
+      });
+  },
+
   methods: {
     addTag() {
-      // eslint-disable-next-line no-console
-      console.log("newtag is", this.newTag)
-      this.items.push({id:5, text:this.newTag, icon:"mdi-glass-wine"})
+      this.items.push({id:5, TagContent:this.newTag, icon:"mdi-glass-wine"})
       this.newTag = ''
     }
   }

@@ -2,28 +2,32 @@
 <div>
     <v-subheader>Informations</v-subheader>
     <div>
-        <v-row class="row">
-            <v-card class="pa-5 ma-5 ">
-                <v-icon>{{ icon }}</v-icon>
-                <h3>22</h3>
-                <v-subheader>Démarches clients</v-subheader>
-            </v-card>
-            <v-card class="pa-5 ma-5 ">
-                <v-icon>{{icon }}</v-icon>
-                <h3>22</h3>
-                <v-subheader>Démarches clients</v-subheader>
-            </v-card>
-        </v-row>
         <v-row>
             <v-card class="pa-5 ma-5 ">
+                <v-icon>{{ icon }}</v-icon>
+                <h3>{{items.TotalClients}}</h3>
+                <v-subheader>Total clients</v-subheader>
+            </v-card>
+            <v-card class="pa-5 ma-5 ">
                 <v-icon>{{icon }}</v-icon>
-                <h3>22</h3>
-                <v-subheader>Démarches clients</v-subheader>
+                <h3>{{items.Todo}}</h3>
+                <v-subheader>Choses à faire</v-subheader>
+            </v-card>
+        
+            <v-card class="pa-5 ma-5 ">
+                <v-icon>{{icon }}</v-icon>
+                <h3>{{items.NewLeads}}</h3>
+                <v-subheader>Nouveaux leads</v-subheader>
             </v-card>
             <v-card class="pa-5 ma-5">
                 <v-icon>{{icon }}</v-icon>
-                <h3>22</h3>
-                <v-subheader>Démarches clients</v-subheader>
+                <h3>{{items.NewDocuments}}</h3>
+                <v-subheader>Nouveaux documents</v-subheader>
+            </v-card>
+            <v-card class="pa-5 ma-5">
+                <v-icon>{{icon }}</v-icon>
+                <h3>{{items.PotentialValue}}</h3>
+                <v-subheader>Valeure potentielle</v-subheader>
             </v-card>
         </v-row>
     </div>
@@ -32,7 +36,7 @@
 
 
 <script>
-
+import axios from "axios";
     export default {
         name: 'Informations',
 
@@ -40,11 +44,23 @@
         },
 
         data: () => ({
-                ongoing: 'Démarche en cours',
-                icon: 'mdi-clock'
+                items: [], 
+                icon: "mdi-clock"
             }
 
         ),
+        beforeCreate() {
+    axios
+      .get("http://localhost:8085/home/5", {
+        headers: {
+          "content-Type": "application/json",
+          Accept: "/"
+        }
+      })
+      .then(response => {
+        this.items = response.data;
+      });
+  },
 
         methods: {
         }
@@ -53,9 +69,9 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .row {
+    /* .row {
         flex-wrap: nowrap;
-        /*width: auto;*/
-    }
+
+    } */
 
 </style>

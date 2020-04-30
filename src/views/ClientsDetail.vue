@@ -1,30 +1,51 @@
 <template>
   <v-content>
     <v-container class="container">
+      <Header></Header>
+
+      <div class="d-flex">
+        <v-col cols="3">
+          <InfoClient></InfoClient>
+          <Tag></Tag>
+        </v-col>
+        <v-col >
+          <v-row>
+            <ScoringOverview class="ooo"></ScoringOverview>
+          </v-row>
+          <v-row class="mt-5">
+            <div class="d-flex actions">
+            <div cols="6" class="sub-childs"><KPIClients></KPIClients></div>
+            <div cols="6" class="aaa">
+              <Alerts isDetail="detail" class="aaa"></Alerts>
+              <NoteClients></NoteClients>
+            </div>
+            </div>
+          </v-row>
+        </v-col>
+      </div>
 
       <v-row>
-        <v-col cols="3">
+        <div cols="5">
           <InfoClientName></InfoClientName>
-        </v-col>
-        <v-col cols="5">
           <InfoClient></InfoClient>
+        </div>
+      </v-row>
+
+      <v-row>
+        <v-col cols="7">
+          <v-row>
+            <ScoringOverview></ScoringOverview>
+          </v-row>
         </v-col>
+
         <v-col cols="3">
-          <Alerts></Alerts>
+          <KPIClients></KPIClients>
         </v-col>
       </v-row>
 
       <v-row>
-        <v-col cols="6">
-          <ScoringOverview></ScoringOverview>
-        </v-col>
-
-        <v-col cols="4">
-          <KPIClients></KPIClients>
-        </v-col>
-
         <v-col cols="5">
-          <v-card class="pa-5 ma-5">
+          <v-card class="pa-5">
             <v-row>
               <div class="d-flex">
                 <div>
@@ -60,10 +81,13 @@
           </v-card>
         </v-col>
 
-        <v-col cols="5">
-          <NoteClients></NoteClients>
+        <v-col cols="4">
+          <Tag></Tag>
         </v-col>
 
+        <v-col cols="3">
+          <NoteClients></NoteClients>
+        </v-col>
       </v-row>
       <!-- class="justify-center" -->
       <v-container class="py-0">
@@ -105,31 +129,26 @@
   </v-content>
 </template>
 
-
-
-
-
-
-
-
-
-
 <script>
 // import Chat from "../components/Chat";
 import Alerts from "../components/Home/Alerts";
+import Header from "../components/Header";
 import ScoringOverview from "../components/Home/ScoringOverview";
 import InfoClient from "../components/Clients/InformationsClients";
 import InfoClientName from "../components/Clients/InformationsClientsName";
 import KPIClients from "../components/Clients/KpiClient";
-import NoteClients from "../components/Clients/NoteClients"
+import NoteClients from "../components/Clients/NoteClients";
+import Tag from "../components/Tag";
 export default {
   components: {
     Alerts,
     ScoringOverview,
     InfoClient,
-    InfoClientName, 
-    KPIClients, 
-    NoteClients
+    InfoClientName,
+    KPIClients,
+    NoteClients,
+    Tag,
+    Header
     // Chat
   },
   data: () => ({
@@ -156,6 +175,7 @@ export default {
       }
     ],
     loading: false,
+    client_id: "",
     search: "",
     selected: []
   }),
@@ -209,3 +229,24 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.aaa {
+  height: 100%;
+  background-color: aqua;
+  width: 100%;
+}
+
+.actions {
+
+  width: 100%;
+}
+
+.sub-childs {
+  width: 100%;
+}
+
+.ooo {
+width: 100%;
+}
+</style>
