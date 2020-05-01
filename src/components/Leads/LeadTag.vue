@@ -1,7 +1,7 @@
 <template>
-  <v-card class="pa-5 overflow-auto" height="40vh">
+  <v-card outlined class="pa-5 overflow-auto">
     <v-row>
-      <v-card-subtitle>Tags client</v-card-subtitle>
+      <v-card-subtitle class="title">Tags client</v-card-subtitle>
       <v-spacer></v-spacer>
       <v-btn color="primary" dark @click.stop="dialog = true">+</v-btn>
     </v-row>
@@ -16,7 +16,6 @@
         <v-card-title class="headline">Ajoutez un tag</v-card-title>
 
         <v-card-text>Ajouter un tag permet de personnaliser le marketing qui sera fait en direction de ce client.</v-card-text>
-
           <v-text-field outlined placeholder="Ajoutez un tag" v-model="newTag"></v-text-field>
 
         <v-card-actions>
@@ -66,5 +65,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.v-application .title {
+  text-align: left;
+ color: #0af !important;
+ font-size: 1em !important;
+}
+
 </style>

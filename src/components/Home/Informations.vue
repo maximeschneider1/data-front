@@ -3,28 +3,28 @@
     <v-subheader>Informations</v-subheader>
     <div>
         <v-row>
-            <v-card class="pa-5 ma-5 ">
+            <v-card outlined class="pa-5 ma-5">
                 <v-icon>{{ icon }}</v-icon>
                 <h3>{{items.TotalClients}}</h3>
                 <v-subheader>Total clients</v-subheader>
             </v-card>
-            <v-card class="pa-5 ma-5 ">
+            <v-card  outlined class="pa-5 ma-5 ">
                 <v-icon>{{icon }}</v-icon>
                 <h3>{{items.Todo}}</h3>
                 <v-subheader>Choses à faire</v-subheader>
             </v-card>
         
-            <v-card class="pa-5 ma-5 ">
+            <v-card outlined  class="pa-5 ma-5 ">
                 <v-icon>{{icon }}</v-icon>
                 <h3>{{items.NewLeads}}</h3>
                 <v-subheader>Nouveaux leads</v-subheader>
             </v-card>
-            <v-card class="pa-5 ma-5">
+            <v-card  outlined class="pa-5 ma-5">
                 <v-icon>{{icon }}</v-icon>
                 <h3>{{items.NewDocuments}}</h3>
                 <v-subheader>Nouveaux documents</v-subheader>
             </v-card>
-            <v-card class="pa-5 ma-5">
+            <v-card  outlined class="pa-5 ma-5">
                 <v-icon>{{icon }}</v-icon>
                 <h3>{{items.PotentialValue}}</h3>
                 <v-subheader>Valeure potentielle</v-subheader>

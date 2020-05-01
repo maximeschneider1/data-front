@@ -3,100 +3,58 @@
     <v-container class="container">
       <Header></Header>
 
-      <v-stepper value="3" class=" ma-5" alt-labels>
-        <v-stepper-header class=" stepper-container pa-0">
-          <v-stepper-step step="1" complete>
-            <p class="stepper">Select campaign settings</p>
+
+      <v-stepper value="3" class="mx-3 mt-1" alt-labels>
+        <v-stepper-header class="stepper-container pa-0">
+          <v-stepper-step step="1" complete >
+            <p class="stepper">1er mail</p>
           </v-stepper-step>
 
           <v-divider></v-divider>
 
           <v-stepper-step step="2" complete>
-            <p class="stepper">Select campaign settings</p>
+            <p class="stepper">1er mail</p>
           </v-stepper-step>
 
           <v-divider></v-divider>
           <v-stepper-step step="3" complete>
-            <p class="stepper">Select campaign settings</p>
+            <p class="stepper">1er mail</p>
           </v-stepper-step>
 
           <v-divider></v-divider>
           <v-stepper-step step="4">
-            <p class="stepper">Select campaign settings</p>
+            <p class="stepper">1er mail</p>
           </v-stepper-step>
 
           <v-divider></v-divider>
 
           <v-stepper-step step="5">
-            <p class="stepper">Select campaign settings</p>
+            <p class="stepper">1er mail</p>
           </v-stepper-step>
         </v-stepper-header>
       </v-stepper>
 
+
       <div class="d-flex">
-        <div>
-          <v-col class="d-flex">
-            <v-col cols="4">
-              <InfoLeadName></InfoLeadName>
-            </v-col>
-            <v-col cols="8">
-              <InfoLead></InfoLead>
-            </v-col>
-            <!-- <v-col >
-            <Alerts isDetail="detail"></Alerts>
-            </v-col>-->
-          </v-col>
-          <v-col class="d-flex">
-            <v-col cols="4">
-              <NoteLead></NoteLead>
-            </v-col>
-            <v-col cols="5">
-              <ContactHistory></ContactHistory>
-            </v-col>
-            <v-col cols="3">
-              <LeadTag></LeadTag>
-            </v-col>
-          </v-col>
-        </div>
-        <v-col cols="2">
-          <KPILead></KPILead>
+        <v-col cols="3" >
+          <InfoLeadName></InfoLeadName>
         </v-col>
+
+        <v-col cols="9">
+          <!-- KPI -->
+          <KPILead></KPILead>
+          <div class="d-flex justify-space-between mb-5">
+            <ContactHistory></ContactHistory>
+            <NoteLead></NoteLead>
+          </div>
+
+          <LeadTag></LeadTag>
+          <!-- Tag -->
+
+
+        </v-col>
+
       </div>
-
-      <v-container class="py-0">
-        <v-row align="center" justify="start">
-          <v-col
-            v-for="(selection, i) in selections"
-            :key="selection.text"
-            class="shrink"
-            @click="maFunc(selection.text)"
-          >
-            <v-chip close @click:close="selected.splice(i, 1)">
-              <v-icon left v-text="selection.icon"></v-icon>
-              {{ selection.text }}
-            </v-chip>
-          </v-col>
-        </v-row>
-      </v-container>
-
-      <!-- <v-card max-width="250">
-        <v-divider v-if="!allSelected"></v-divider>
-
-        <v-list>
-          <template v-for="(item, i) in categories">
-            <v-list-item
-              v-if="!selected.includes(i)"
-              :key="i"
-              @click="selected.push(i); maFunc(item.text)"
-            >
-              <v-list-item-avatar>
-                <v-icon :disabled="loading" v-text="item.icon"></v-icon>
-              </v-list-item-avatar>
-              <v-list-item-title v-text="item.text"></v-list-item-title>
-            </v-list-item>
-          </template>
-        </v-list>
-      </v-card>-->
     </v-container>
   </v-content>
 </template>
@@ -104,7 +62,6 @@
 // import Chat from "../components/Chat";
 // import Alerts from "../components/Home/Alerts";
 import Header from "../components/Header";
-import InfoLead from "../components/Leads/InformationsLead";
 import InfoLeadName from "../components/Leads/InformationsLeadName";
 import KPILead from "../components/Leads/KpiLead";
 import NoteLead from "../components/Leads/NoteLead";
@@ -113,7 +70,6 @@ import ContactHistory from "../components/Leads/ContactHistory";
 export default {
   components: {
     // Alerts,
-    InfoLead,
     InfoLeadName,
     KPILead,
     NoteLead,
@@ -205,8 +161,10 @@ export default {
   text-align: center;
   font-size: 0.8em;
 }
-.stepper-container {
-  /* overflow: auto; */
-  height: 13vh;
+.v-stepper{
+  height: 12vh;
+    box-shadow: none;
+    border: thin solid rgba(0, 0, 0, 0.12);
 }
+
 </style>

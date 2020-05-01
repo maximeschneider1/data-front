@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-subheader>Tâches</v-subheader>
+    <v-subheader class="title">Tâches</v-subheader>
 
-    <v-card class="mx-5 pa-5 overflow-auto" min-width="500px" height="50vh">
+    <v-card outlined class="mx-5 pa-5 overflow-auto" max-height="50vh">
       <v-row class="d-flex justify-space-around">
         <v-subheader>
           <b></b>
@@ -34,7 +34,6 @@
         <div class="color-box-one" v-if="i % 2 == 0"></div>
         <div class="color-box-two" v-if="i % 2 != 0"></div>
         <v-row class="white-row" v-if="i % 2 == 0">
-
           <div class="name-class" @click="linkToClient(items)">
             <v-subheader>{{ items.Name }}</v-subheader>
           </div>
@@ -42,12 +41,11 @@
           <v-subheader class="name-class" @click="linkToClient(items)">{{ items.Category }}</v-subheader>
           <v-subheader class="name-class-motif" @click="linkToClient(items)">{{ items.Motif }}</v-subheader>
           <v-btn icon>
-            <v-icon >{{ firstIcon }}</v-icon>
+            <v-icon>{{ firstIcon }}</v-icon>
           </v-btn>
           <v-btn icon>
             <v-icon @click="deleteItem(items)">{{ secondIcon }}</v-icon>
           </v-btn>
-          
         </v-row>
 
         <v-row class="color-row" v-if="i % 2 != 0">
@@ -76,11 +74,11 @@ export default {
   name: "Todo",
   data() {
     return {
-      items: [], 
+      items: [],
       firstIcon: "mdi-calendar-clock",
-          secondIcon: "mdi-trash-can-outline",
+      secondIcon: "mdi-trash-can-outline"
     };
-  }, 
+  },
   beforeCreate() {
     axios
       .get("http://localhost:8085/todo/5", {
@@ -94,24 +92,22 @@ export default {
       });
   },
   methods: {
-
-  linkToClient(item) {
-      
+    linkToClient(item) {
       window.location.href = "/client-detail/" + item.id;
     },
-  
-  deleteItem(item) {
-    /* eslint-disable no-console */
+
+    deleteItem(item) {
+      /* eslint-disable no-console */
       console.log("Ligne :", item);
       for (var i = 0; i < this.items.length; i++) {
         if (this.items[i].Id === item.Id) {
           /* eslint-disable no-console */
-      console.log("yessss");
+          console.log("yessss");
           this.items.splice(i, 1);
         }
       }
-    },
-    }, 
+    }
+  }
 };
 </script>
 
@@ -121,37 +117,40 @@ export default {
     border-width: 0.01em
 } */
 .color-box-one {
-  width: 15px;
+  width: 3%;
   margin: 5px;
   margin-right: 0px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  background-color: #36D1DC;
+  background-color: #36d1dc;
 }
 
 .color-box-two {
-  width: 15px;
+  width: 3%;
   margin: 5px;
   margin-right: 0px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  background-color: #5B86E5;
+  background-color: #5b86e5;
+
 }
 .white-row {
   justify-content: space-around;
   margin: 5px;
+  min-width: 90%;
   margin-left: 0px;
 }
 .name-class {
-   cursor: pointer;
-  overflow: hidden;
+  cursor: pointer;
+  /* overflow: hidden; */
   text-align: left;
-  width: 20%;
+  /* width: 20%; */
 }
 .name-class-motif {
   text-align: left;
-  width: 25%;
-   cursor: pointer;
+  max-width: 25%;
+  min-width: 25%;
+  cursor: pointer;
 }
 
 .color-row {
@@ -160,7 +159,9 @@ export default {
   margin-left: 0px;
   background-color: aliceblue;
 }
-text {
-  font-size: 1em;
+.v-application .title {
+  text-align: left;
+ color: #0af !important;
+ font-size: 1em !important;
 }
 </style>

@@ -25,13 +25,13 @@
         </v-row>
       </v-row>
     </v-card>
-  </div> -->
+  </div>  -->
 
   
   <div class="">
-    <!-- <v-subheader>Alertes client</v-subheader> -->
-    <v-card class="px-5 overflow-auto" :class="isDetail">
-      <v-row class="d-flex justify-space-around" v-for="(item, io) in items" :key="io">
+    <v-card outlined class="pa-5 overflow-auto detail" >
+       <v-subheader class="title">Alertes client</v-subheader>
+      <v-row class="d-flex justify-space-around " v-for="(item, io) in items" :key="io">
         <v-row class="white-row" v-if="io % 2 == 0">
           <v-icon class="ml-5">mdi-bell-outline</v-icon>
           <div class="alert-text-wrapper" @click="linkToClient(item)">
@@ -62,18 +62,16 @@
 import axios from "axios";
 export default {
   name: "Alerts",
-  props: ["isDetail"],
 
   components: {},
 
   data: () => ({
-    detail : this.props.isDetail, 
-    alert: "mdi-bell",
-    delete: "mdi-delete",
+    alert: "",
+    delete: "",
     items: []
   }),
 
-  beforeCreate() {
+  beforeMount() {
     axios
       .get("http://localhost:8085/alerts/5", {
         headers: {
@@ -108,7 +106,7 @@ export default {
 .alert-text-wrapper {
   margin-right: 10%;
   text-align: left;
-  width: 70%;
+  width: 50%;
   overflow: hidden;
 }
 
@@ -136,5 +134,10 @@ export default {
 
 .overview {
   height: 50vh;
+}
+.title {
+ color: #0af;
+ font-size: 1em !important;
+
 }
 </style>

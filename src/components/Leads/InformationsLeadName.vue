@@ -1,26 +1,55 @@
 <template >
-        <v-card height="40vh" class="pa-5 my-card">
-          <div>
-          <v-card-title class="justify-center">{{leadInfo.nom}}</v-card-title>
-          <v-card-subtitle>{{leadInfo.phone}}</v-card-subtitle>
-          </div>
-        </v-card>
-        
+    <v-card outlined class="pa-5 my-card" height="100%">
+
+      <v-avatar size="100" round class="ma-3">
+        <img src="../../assets/engie-commercial.jpg" />
+      </v-avatar>
+
+      <v-card-title class>{{leadInfo.nom}}</v-card-title>
+      <v-card-subtitle>a_ducaumier@gmail.com</v-card-subtitle>
+
+      <!-- <v-btn :elevation="0" color="primary" class="ma-3">
+        <v-icon left>{{ icons.facture }}</v-icon>Facture
+      </v-btn> -->
+
+      <v-card-subtitle class="py-0">Téléphone</v-card-subtitle>
+      <v-subheader>{{leadInfo.phone}}</v-subheader>
+
+      <v-divider></v-divider>
+
+      <v-card-subtitle class="pb-0"> Adresse</v-card-subtitle>
+      <v-subheader>{{leadInfo.address}}</v-subheader>
+
+      <v-card-subtitle class="py-0">Ville</v-card-subtitle>
+      <v-subheader>{{leadInfo.City}}</v-subheader>
+
+      
+
+      <v-card-subtitle class="py-0">Ville</v-card-subtitle>
+      <v-subheader>{{leadInfo.City}}</v-subheader>
+
+      <v-card-subtitle class="py-0">Première prise de contact</v-card-subtitle>
+      <v-subheader>{{leadInfo.FirstContact}}</v-subheader>
+    </v-card>
+
+    <!-- <v-card height="40vh" class="pa-5 my-card">
+      <div>
+        <v-card-title class="justify-center"></v-card-title>
+        <v-card-subtitle></v-card-subtitle>
+      </div>
+    </v-card> -->
 </template>
 
 <script>
 import axios from "axios";
 export default {
-    name: 'InfoClientLead', 
+  name: "InfoClientLead",
 
-
-data() {
+  data() {
     return {
-      leadInfo : []
-    }
+      leadInfo: []
+    };
   },
-  
-
 
   mounted() {
     axios
@@ -33,18 +62,32 @@ data() {
       .then(response => {
         this.leadInfo = response.data;
 
-      /* eslint-disable no-console */
-        console.log("les infos lead", this.leadInfo)
+        /* eslint-disable no-console */
+        console.log("les infos lead", this.leadInfo);
       });
   }
-}
+};
 </script>
 
 
 <style scoped>
 .my-card {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  text-align: left;
 }
+.v-card > *:first-child:not(.v-btn):not(.v-chip),
+.v-card > .v-card__progress + *:not(.v-btn):not(.v-chip) {
+  /* border-radius: 0; */
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.v-subheader {
+  color: black;
+  /* height: 20%; */
+}
+
+
 </style>

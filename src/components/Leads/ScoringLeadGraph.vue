@@ -1,7 +1,7 @@
 <template>
     <div>
-        <v-subheader>Scoring de vos leads</v-subheader>
-        <v-card class="pa-5 mx-5" v-if="isLoaded">
+        <v-subheader class="title">Scoring de vos leads</v-subheader>
+        <v-card outlined class="pa-5 mx-5 mb-5 overflow-auto" v-if="isLoaded" height="50vh">
 <!--            <v-card-text class="max">Scoring overview</v-card-text>-->
             <!-- <v-img
                     :src="require('/Users/max/data-front/src/assets/maquettecrm.png')"
@@ -12,7 +12,7 @@
 
             
         </v-card>
-        <v-card v-else class="px-5 ma-5" height="350">
+        <v-card v-else class="px-5 ma-5" height="50vh">
            <!-- <v-skeleton-loader
       height="350"
       type="image"
@@ -108,5 +108,10 @@ export default {
     .yes {
         /*height: available;*/
     }
+    .v-application .title {
+  text-align: left;
+ color: #0af !important;
+ font-size: 1em !important;
+}
 
 </style>

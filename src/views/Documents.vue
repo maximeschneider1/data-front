@@ -5,7 +5,7 @@
         <Header></Header>
 
         <v-col cols="12">
-          <v-card class="pa-5 " :elevation="7">
+          <v-card class="pa-5 " outlined >
             <v-row>
               <v-card-title>Documentation</v-card-title>
             </v-row>
@@ -17,12 +17,12 @@
                 <v-tab>Coaching</v-tab>
                 <v-tab>Marketing</v-tab>
                 <v-spacer></v-spacer>
-                <v-text-field class="ma-1" label="Recherche" prepend-icon="mdi-magnify" solo dense></v-text-field>
+                <v-text-field class="ma-1" label="Recherche"  outlined prepend-icon="mdi-magnify" dense></v-text-field>
                 
 
                 <v-tab-item>
                   <div class="d-flex flex-wrap">
-                    <v-card v-for="(panneaux, i) in panneaux" :key="i" class="ma-5 pa-5">
+                    <v-card outlined v-for="(panneaux, i) in panneaux" :key="i" class="ma-5 pa-5">
                       <v-img
                         src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
                         height="150px"
@@ -35,7 +35,7 @@
 
                 <v-tab-item>
                   <div class="d-flex flex-wrap">
-                    <v-card v-for="(coaching, i) in coaching" :key="i" class="ma-5 pa-5">
+                    <v-card outlined v-for="(coaching, i) in coaching" :key="i" class="ma-5 pa-5">
                       <v-img
                         src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
                         height="150px"
@@ -53,6 +53,7 @@
                       :key="i"
                       class="ma-5 pa-5"
                       max-width="280"
+                      outlined 
                     >
                       <v-img
                         src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
@@ -60,6 +61,7 @@
                         width="250"
                       ></v-img>
                       <v-card-title v-text="marketing.text"></v-card-title>
+                      
                     </v-card>
                   </div>
                 </v-tab-item>
@@ -118,7 +120,7 @@ export default {
         },
         {
           id: 3,
-          text: "Le pétrole ? C'est has been !",
+          text: "Le pétrole ? !",
           icon: "mdi-glass-wine"
         },
         {

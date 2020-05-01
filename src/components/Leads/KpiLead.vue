@@ -1,70 +1,36 @@
 <template>
-  <v-row>
-    <div>
-      <div class="first-part d-flex">
-        <div class="my-card">
-          <div>
-            <v-card class="pa-2 mt-3 my-card" width="200" height="18vh">
-              <div>
-                <v-card-title class="justify-center">{{leadInfo.score}}</v-card-title>
-                <v-card-subtitle>Score</v-card-subtitle>
-              </div>
-            </v-card>
-            <v-card class="pa-2 my-7 mb-0 my-card" width="200" height="18vh">
-              <div>
-                <v-card-title class="justify-center">{{leadInfo.OpenedEmails}}</v-card-title>
-                <v-card-subtitle>Mails ouverts</v-card-subtitle>
-              </div>
-            </v-card>
-          </div>
-        </div>
-      </div>
-      <div class="first-part d-flex">
-        <div class="my-card">
-          <div>
-          <v-card class="pa-2 mt-12 my-card" height="18vh">
-            <div>
-              <v-card-title class="justify-center">{{leadInfo.Profitability}}</v-card-title>
-              <v-card-subtitle>Gains avec EmP</v-card-subtitle>
-            </div>
-          </v-card>
+  <div class="d-flex justify-space-between">
+    <v-card outlined class="mb-5 mr-5 pt-3" width="20%">
+      <v-icon color="blue" class="pa-2">mdi-text-box-outline</v-icon>
+      <v-card-title class="pa-0 justify-center">23</v-card-title>
+      <p>kWh produits</p>
+    </v-card>
 
-          <v-card class="pa-2 mt-8 my-card" height="18vh">
-            <div>
-              <v-card-title class="justify-center">{{leadInfo.ContentDownloaded}}</v-card-title>
-              <v-card-subtitle>Document téléchargés</v-card-subtitle>
-            </div>
-          </v-card>
-        </div>
-        </div>
-      </div>
-    </div>
-  </v-row>
-  <!-- <v-row>
-      <div class="d-flex">
-        <v-card class="pa-2 ma-2">
-          <v-card-title class="justify-center">23</v-card-title>
-          <v-card-subtitle>kWh produits</v-card-subtitle>
-        </v-card>
-        <v-card class="pa-2 ma-2">
-          <v-card-title class="justify-center">23</v-card-title>
-          <v-card-subtitle>kWh produits</v-card-subtitle>
-        </v-card>
-      </div>
-  </v-row>-->
+    <v-card outlined class="mb-5 mr-5 pt-3" width="20%">
+      <v-icon color="blue" class="pa-2">mdi-text-box-outline</v-icon>
+      <v-card-title class="pa-0 justify-center">{{leadInfo.score}}</v-card-title>
+      <p>Score</p>
+    </v-card>
 
-  <!-- <v-row>
-      <div class="d-flex">
-        <v-card class="pa-2 ma-2">
-          <v-card-title class="justify-center">23</v-card-title>
-          <v-card-subtitle>kWh produits</v-card-subtitle>
-        </v-card>
-        <v-card class="pa-2 ma-2">
-          <v-card-title class="justify-center">23</v-card-title>
-          <v-card-subtitle>kWh produits</v-card-subtitle>
-        </v-card>
-      </div>
-  </v-row>-->
+    <v-card outlined class="mb-5 mr-5 pt-3" width="20%">
+      <v-icon color="blue" class="pa-2">mdi-text-box-outline</v-icon>
+      <v-card-title class="pa-0 justify-center">{{leadInfo.OpenedEmails}}</v-card-title>
+      <p>Mails ouvert</p>
+    </v-card>
+
+    <v-card outlined class="mb-5 mr-5 pt-3" width="20%">
+      <v-icon color="blue" class="pa-2">mdi-text-box-outline</v-icon>
+      <v-card-title class="pa-0 justify-center">{{leadInfo.Profitability}}</v-card-title>
+      <p>Gains avec EmP</p>
+    </v-card>
+
+        <v-card outlined class="mb-5 pt-3" width="20%">
+      <v-icon color="blue" class="pa-2">mdi-text-box-outline</v-icon>
+      <v-card-title class="pa-0 justify-center">{{leadInfo.ContentDownloaded}}</v-card-title>
+      <p>Document téléchargés</p>
+    </v-card>
+
+  </div>
 </template>
 
 <script>
@@ -96,13 +62,13 @@ export default {
 </script>
 
 <style scoped>
-.first-part {
-  /* height: 40vh; */
-  /* margin: 10% */
+
+.v-card p {
+  margin-bottom: 5%;
 }
-.my-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+.v-card  {
+  color: #0af !important;
 }
+
 </style>

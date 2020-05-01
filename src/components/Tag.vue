@@ -1,7 +1,7 @@
 <template>
-  <v-card class="pa-5 overflow-auto" max-height="250">
+  <v-card outlined class="pa-5 overflow-auto" min-width="20%"  height="33%">
     <v-row>
-      <v-card-subtitle>Tags client</v-card-subtitle>
+      <v-subheader class="pa-200 title">Tags client</v-subheader>
       <v-spacer></v-spacer>
       <v-btn color="primary" dark @click.stop="dialog = true">+</v-btn>
     </v-row>
@@ -72,5 +72,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.title {
+ color: #0af;
+ font-size: 1em !important;
+
+}
 </style>

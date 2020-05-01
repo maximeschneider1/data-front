@@ -1,8 +1,8 @@
 <template>
     <div>
         
-        <v-card class="" v-if="isLoaded">
-        <v-subheader @click="tellme()">Tendance client</v-subheader>
+        <v-card outlined class="pa-5 mr-6" v-if="isLoaded">
+        <v-subheader @click="tellme()" class="title">Tendance client</v-subheader>
 <!--            <v-card-text class="max">Scoring overview</v-card-text>-->
             <!-- <v-img
                     :src="require('/Users/max/data-front/src/assets/maquettecrm.png')"
@@ -100,9 +100,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .yes {
-        /*height: available;*/
-    }
     
+    .title {
+ color: #0af;
+ font-size: 1em !important;
+
+}
 
 </style>

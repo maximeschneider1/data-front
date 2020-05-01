@@ -1,32 +1,35 @@
 <template>
-    <v-card class="pa-1 overflow-auto" height="40vh">
-        <v-row class="d-flex justify-space-around">
-            <v-subheader><b>Type</b></v-subheader>
-            <v-subheader><b>Date</b></v-subheader>
-            <v-subheader><b>Commentaire</b></v-subheader>
-        </v-row>
+  <v-card outlined class="pa-1 overflow-auto" height="40vh" width="60%">
+    <v-card-subtitle class="title">Historique des démarches</v-card-subtitle>
+    <div class="d-flex justify-space-around">
+      <v-subheader>
+        <b>Type</b>
+      </v-subheader>
+      <v-subheader>
+        <b>Date</b>
+      </v-subheader>
+      <v-subheader>
+        <b>Commentaire</b>
+      </v-subheader>
+    </div>
 
-        <v-row v-for="(item, i) in items" :key="i" class="d-flex ml-1 justify-space-around">
-            <v-icon>{{ item.Icon }}</v-icon>
-            <v-subheader>{{ item.Date }}</v-subheader>
-            <v-subheader>{{ item.Comment }}</v-subheader>
-                      
-                    </v-row>
-
-        
-    </v-card>
+    <div v-for="(item, i) in items" :key="i" class="d-flex justify-space-around">
+      <v-icon class="row-element">{{ item.Icon }}</v-icon>
+      <v-subheader class="row-element">{{ item.Date }}</v-subheader>
+      <v-subheader class="row-element">{{ item.Comment }}</v-subheader>
+    </div>
+  </v-card>
 </template>
 
 <script>
 import axios from "axios";
 export default {
-    name: 'ContactHistory', 
-    data () {
-      return {
-          items: [],
-      }
-    },
-
+  name: "ContactHistory",
+  data() {
+    return {
+      items: []
+    };
+  },
 
   mounted() {
     axios
@@ -40,15 +43,18 @@ export default {
         this.items = response.data;
       });
   }
- 
-}
+};
 </script>
 
-<style>
-.v-card {
-  /* background-color: aqua;
-  font-size: 1em; */
+<style scopped>
+.row-element {
+  /* background-color: aqua !important; */
 }
-p {}
+
+.v-application .title {
+  text-align: left;
+ color: #0af !important;
+ font-size: 1em !important;
+}
 
 </style>

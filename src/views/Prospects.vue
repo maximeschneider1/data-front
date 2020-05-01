@@ -3,19 +3,19 @@
     <v-container>
       <Header></Header>
       <div class="d-md-flex d-xs-flex-column">
-        <v-col cols="5">
+        <v-col class="ma-0 pa-0" cols="5">
           <ScoringLead></ScoringLead>
         </v-col>
 
         <v-spacer></v-spacer>
-        <v-col cols="7">
+        <v-col class="ma-0 pa-0" cols="7">
           <Todo></Todo>
         </v-col>
 
       </div>
-      <v-card class="pa-5 ma-5">
+      <v-card-subtitle class="ml-5 pa-0 title">Liste de vos prospects</v-card-subtitle>
+      <v-card outlined class="pa-5 ma-5">
         <v-card-title>
-          Liste de vos prospects
           <v-spacer></v-spacer>
           <v-text-field
             v-model="search"
@@ -86,6 +86,11 @@ export default {
 <style>
 .dataTable {
   cursor: pointer;
+}
+.v-application .title {
+  text-align: left;
+ color: #0af !important;
+ font-size: 1em !important;
 }
 
 </style>
