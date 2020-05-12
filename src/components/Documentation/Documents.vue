@@ -5,24 +5,24 @@
         <Header></Header>
 
         <v-col cols="12">
-          <v-card class="pa-5 " outlined >
+          <v-card class="pa-10 " outlined >
             <v-row>
               <v-card-title>Documentation</v-card-title>
             </v-row>
 
-            <v-row>
+            <v-row >
               <v-tabs>
              
                 <v-tab>Panneaux Solaire</v-tab>
                 <v-tab>Coaching</v-tab>
                 <v-tab>Marketing</v-tab>
                 <v-spacer></v-spacer>
-                <v-text-field class="ma-1" label="Recherche"  outlined prepend-icon="mdi-magnify" dense></v-text-field>
+                <v-text-field class="ma-1 mb-5" label="Recherche"  outlined prepend-icon="mdi-magnify" dense></v-text-field>
                 
 
                 <v-tab-item>
                   <div class="d-flex flex-wrap">
-                    <v-card outlined v-for="(panneaux, i) in panneaux" :key="i" class="ma-5 pa-5">
+                    <v-card href="documentation/article" outlined v-for="(panneaux, i) in panneaux" :key="i" class="ma-5 pa-5 article">
                       <v-img
                         src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
                         height="150px"
@@ -35,7 +35,7 @@
 
                 <v-tab-item>
                   <div class="d-flex flex-wrap">
-                    <v-card outlined v-for="(coaching, i) in coaching" :key="i" class="ma-5 pa-5">
+                    <v-card href="documentation/article" outlined v-for="(coaching, i) in coaching" :key="i" class="ma-5 pa-5 article">
                       <v-img
                         src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
                         height="150px"
@@ -49,9 +49,10 @@
                 <v-tab-item>
                   <div class="d-flex flex-wrap">
                     <v-card
+                            href="documentation/article"
                       v-for="(marketing, i) in marketing"
                       :key="i"
-                      class="ma-5 pa-5"
+                      class="ma-5 pa-5 article"
                       max-width="280"
                       outlined 
                     >
@@ -75,7 +76,7 @@
 </template>
 
 <script>
-import Header from "../components/Header";
+import Header from "../AppStructure/Header";
 
 export default {
   name: "DocumentsView",
@@ -88,22 +89,22 @@ export default {
       panneaux: [
         {
           id: 1,
-          text: "Panneaux solaire",
+          text: "Panneaux solaire EC2",
           icon: "mdi-nature"
         },
         {
           id: 2,
-          text: "Augmentez la production",
+          text: "Avril 2020 : Passez à la rentabilité supérieure",
           icon: "mdi-glass-wine"
         },
         {
           id: 3,
-          text: "Nettoyer ses panneaux",
+          text: "Nettoyer ses panneaux : pas si compliqué",
           icon: "mdi-glass-wine"
         },
         {
           id: 4,
-          text: "Soleil : ce qu'il faut savoir",
+          text: "Solaire : ce qu'il faut savoir",
           icon: "mdi-glass-wine"
         }
       ],
@@ -155,3 +156,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+  .article {
+    max-width: 300px;
+    text-align: left;
+  }
+</style>

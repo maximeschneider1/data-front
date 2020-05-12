@@ -5,17 +5,13 @@
         <img src="../../assets/engie-commercial.jpg" />
       </v-avatar>
 
-      <v-card-title class>{{leadInfo.nom}}</v-card-title>
-      <v-card-subtitle>a_ducaumier@gmail.com</v-card-subtitle>
-
-      <!-- <v-btn :elevation="0" color="primary" class="ma-3">
-        <v-icon left>{{ icons.facture }}</v-icon>Facture
-      </v-btn> -->
+      <v-card-title class>{{leadInfo.name}}</v-card-title>
+      <v-card-subtitle>{{leadInfo.email}}</v-card-subtitle>
 
       <v-card-subtitle class="py-0">Téléphone</v-card-subtitle>
       <v-subheader>{{leadInfo.phone}}</v-subheader>
 
-      <v-divider></v-divider>
+      <v-divider/>
 
       <v-card-subtitle class="pb-0"> Adresse</v-card-subtitle>
       <v-subheader>{{leadInfo.address}}</v-subheader>
@@ -23,21 +19,11 @@
       <v-card-subtitle class="py-0">Ville</v-card-subtitle>
       <v-subheader>{{leadInfo.City}}</v-subheader>
 
-      
-
-      <v-card-subtitle class="py-0">Ville</v-card-subtitle>
-      <v-subheader>{{leadInfo.City}}</v-subheader>
 
       <v-card-subtitle class="py-0">Première prise de contact</v-card-subtitle>
       <v-subheader>{{leadInfo.FirstContact}}</v-subheader>
     </v-card>
 
-    <!-- <v-card height="40vh" class="pa-5 my-card">
-      <div>
-        <v-card-title class="justify-center"></v-card-title>
-        <v-card-subtitle></v-card-subtitle>
-      </div>
-    </v-card> -->
 </template>
 
 <script>
@@ -53,14 +39,14 @@ export default {
 
   mounted() {
     axios
-      .get("http://localhost:8085/leads/info/1", {
+      .get("http://localhost:8085/leads/info/" + this.$route.params.id, {
         headers: {
           "content-Type": "application/json",
           Accept: "/"
         }
       })
       .then(response => {
-        this.leadInfo = response.data;
+        this.leadInfo = response.data.data[0];
 
         /* eslint-disable no-console */
         console.log("les infos lead", this.leadInfo);

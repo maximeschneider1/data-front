@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-subheader class="title">Tâches</v-subheader>
+    <v-subheader class="title">Tâches clients</v-subheader>
 
     <v-card outlined class="mx-5 pa-5 overflow-auto" max-height="50vh">
-      <v-row class="d-flex justify-space-around">
+      <v-row class="d-flex justify-space-around todo-container">
         <v-subheader>
           <b></b>
         </v-subheader>
@@ -30,36 +30,36 @@
         </v-subheader>
       </v-row>
 
-      <v-row v-for="(items, i) in items" :key="i">
+      <v-row v-for="(items, i) in items" :key="i" class="todo-container">
         <div class="color-box-one" v-if="i % 2 == 0"></div>
         <div class="color-box-two" v-if="i % 2 != 0"></div>
         <v-row class="white-row" v-if="i % 2 == 0">
-          <div class="name-class" @click="linkToClient(items)">
+          <div class="name-cell" @click="linkToClient(items)">
             <v-subheader>{{ items.Name }}</v-subheader>
           </div>
-          <v-subheader class="name-class" @click="linkToClient(items)">{{ items.Telephone }}</v-subheader>
+          <v-subheader class="name-class" @click="linkToClient(items)">{{ items.Phone }}</v-subheader>
           <v-subheader class="name-class" @click="linkToClient(items)">{{ items.Category }}</v-subheader>
           <v-subheader class="name-class-motif" @click="linkToClient(items)">{{ items.Motif }}</v-subheader>
-          <v-btn icon>
+          <v-btn icon class="py-3">
             <v-icon>{{ firstIcon }}</v-icon>
           </v-btn>
-          <v-btn icon>
+          <v-btn icon class="py-3">
             <v-icon @click="deleteItem(items)">{{ secondIcon }}</v-icon>
           </v-btn>
         </v-row>
 
         <v-row class="color-row" v-if="i % 2 != 0">
-          <div class="name-class" @click="linkToClient(items)">
+          <div class="name-cell" @click="linkToClient(items)">
             <v-subheader>{{ items.Name }}</v-subheader>
           </div>
-          <v-subheader class="name-class" @click="linkToClient(items)">{{ items.Telephone }}</v-subheader>
+          <v-subheader class="name-class" @click="linkToClient(items)">{{ items.Phone }}</v-subheader>
           <v-subheader class="name-class" @click="linkToClient(items)">{{ items.Category }}</v-subheader>
           <v-subheader class="name-class-motif" @click="linkToClient(items)">{{ items.Motif }}</v-subheader>
 
-          <v-btn icon>
+          <v-btn icon class="py-3">
             <v-icon>{{ firstIcon }}</v-icon>
           </v-btn>
-          <v-btn icon>
+          <v-btn icon class="py-3">
             <v-icon @click="deleteItem(items)">{{ secondIcon }}</v-icon>
           </v-btn>
         </v-row>
@@ -81,19 +81,20 @@ export default {
   },
   beforeCreate() {
     axios
-      .get("http://localhost:8085/todo/5", {
+      .get("http://localhost:8085/todo/3", {
         headers: {
           "content-Type": "application/json",
+          "Page-Origin": "clients",
           Accept: "/"
         }
       })
       .then(response => {
-        this.items = response.data;
+        this.items = response.data.data[0];
       });
   },
   methods: {
     linkToClient(item) {
-      window.location.href = "/client-detail/" + item.id;
+      window.location.href = "/clients/detail/" + item.Id;
     },
 
     deleteItem(item) {
@@ -117,7 +118,7 @@ export default {
     border-width: 0.01em
 } */
 .color-box-one {
-  width: 3%;
+  width: 2.5%;
   margin: 5px;
   margin-right: 0px;
   border-top-left-radius: 5px;
@@ -126,7 +127,7 @@ export default {
 }
 
 .color-box-two {
-  width: 3%;
+  width: 2.5%;
   margin: 5px;
   margin-right: 0px;
   border-top-left-radius: 5px;
@@ -140,11 +141,11 @@ export default {
   min-width: 90%;
   margin-left: 0px;
 }
-.name-class {
+.name-cell {
   cursor: pointer;
   /* overflow: hidden; */
   text-align: left;
-  /* width: 20%; */
+   width: 20%;
 }
 .name-class-motif {
   text-align: left;
@@ -164,4 +165,8 @@ export default {
  color: #0af !important;
  font-size: 1em !important;
 }
+
+  .todo-container {
+    min-width: 530px;
+  }
 </style>

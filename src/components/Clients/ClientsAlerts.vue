@@ -1,8 +1,9 @@
 <template>
 
   <div class="">
-  <v-subheader class="title">Alertes client</v-subheader>
-    <v-card outlined class="pa-5 overflow-auto detail" height="50vh">
+    <v-card outlined class="pa-5 overflow-auto detail" v-if="items">
+       <v-subheader class="title">Alertes du client</v-subheader>
+
       <v-row class="d-flex justify-space-around " v-for="(item, io) in items" :key="io">
         <v-row class="white-row" v-if="io % 2 == 0">
           <v-icon class="ml-5">mdi-bell-outline</v-icon>
@@ -25,6 +26,16 @@
         </v-row>
       </v-row>
     </v-card>
+    <v-card v-else outlined height="20vh">
+      <v-subheader class="title">Alertes du client</v-subheader>
+      <v-row class="d-flex justify-space-around ">
+<!--        <v-row class="white-row">-->
+          <div class="alert-text-wrapper">
+            <v-subheader>Pas d'alertes à afficher pour ce client</v-subheader>
+          </div>
+        </v-row>
+
+    </v-card>
   </div>
 
 </template>
@@ -33,7 +44,7 @@
 <script>
 import axios from "axios";
 export default {
-  name: "Alerts",
+  name: "ClientsAlerts",
 
   components: {},
 
@@ -45,15 +56,24 @@ export default {
 
   beforeMount() {
     axios
-      .get("http://localhost:8085/alerts/5", {
+      .get("http://localhost:8085/clients/alerts/" + this.$route.params.id, {
         headers: {
-          "content-Type": "application/json",
-          Accept: "/"
+          'content-Type': 'application/json',
+          "Accept": "/",
         }
       })
       .then(response => {
         this.items = response.data.data[0];
-      });
+        /* eslint-disable no-console */
+        console.log("non y'a rien", response)
+        if (!response.data.data[0]) {
+          /* eslint-disable no-console */
+          console.log("non y'a rien")
+        }
+      }).catch(error => {
+        console.error(error)
+        this.items.motif = "Impossible de retourner la liste des alertes"
+        ;});
   },
 
   methods: {
@@ -70,11 +90,12 @@ export default {
   }
 };
 </script>
+
 <style scoped>
 .alert-text-wrapper {
   margin-right: 10%;
   text-align: left;
-  width: 50%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -91,6 +112,7 @@ export default {
   justify-content: space-around;
   margin: 5px;
   margin-left: 0px;
+  /* background-color: aliceblue; */
   border-radius: 10px;
   cursor: pointer;
 }
@@ -99,12 +121,14 @@ export default {
   height: 30vh;
 }
 
-.overview {
-  height: 50vh;
+.row {
+  flex-wrap: nowrap;
 }
 .title {
  color: #0af;
  font-size: 1em !important;
 
 }
+
+
 </style>

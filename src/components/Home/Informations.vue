@@ -1,55 +1,58 @@
 <template>
-<div>
-    <v-subheader>Informations</v-subheader>
-    <div>
-        <v-row>
-            <v-card outlined class="pa-5 ma-5">
-                <v-icon>{{ icon }}</v-icon>
-                <h3>{{items.TotalClients}}</h3>
-                <v-subheader>Total clients</v-subheader>
-            </v-card>
-            <v-card  outlined class="pa-5 ma-5 ">
-                <v-icon>{{icon }}</v-icon>
-                <h3>{{items.Todo}}</h3>
-                <v-subheader>Choses à faire</v-subheader>
-            </v-card>
-        
-            <v-card outlined  class="pa-5 ma-5 ">
-                <v-icon>{{icon }}</v-icon>
-                <h3>{{items.NewLeads}}</h3>
-                <v-subheader>Nouveaux leads</v-subheader>
-            </v-card>
-            <v-card  outlined class="pa-5 ma-5">
-                <v-icon>{{icon }}</v-icon>
-                <h3>{{items.NewDocuments}}</h3>
-                <v-subheader>Nouveaux documents</v-subheader>
-            </v-card>
-            <v-card  outlined class="pa-5 ma-5">
-                <v-icon>{{icon }}</v-icon>
-                <h3>{{items.PotentialValue}}</h3>
-                <v-subheader>Valeure potentielle</v-subheader>
-            </v-card>
-        </v-row>
+  <div>
+    <v-subheader class="title">Etat général</v-subheader>
+    <div class="d-flex justify-space-between">
+
+      <v-card outlined class="mb-5 mr-5 pt-3" width="20%">
+        <v-icon color="blue" class="pa-2">mdi-account-group</v-icon>
+        <v-card-title class="pa-0 justify-center">{{items.TotalClients}}</v-card-title>
+        <p>Total clients</p>
+      </v-card>
+
+      <v-card outlined class="mb-5 mr-5 pt-3" width="20%">
+        <v-icon color="blue" class="pa-2">mdi-folder</v-icon>
+        <v-card-title class="pa-0 justify-center">{{items.NewDocuments}}</v-card-title>
+        <p>Nouveaux documents</p>
+      </v-card>
+
+
+      <v-card outlined class="mb-5 mr-5 pt-3" width="20%">
+        <v-icon color="blue" class="pa-2">mdi-account-clock</v-icon>
+        <v-card-title class="pa-0 justify-center">{{items.Todo}}</v-card-title>
+        <p>Démarche en cours</p>
+      </v-card>
+
+      <v-card outlined class="mb-5 mr-5 pt-3" width="20%">
+        <v-icon color="blue" class="pa-2">mdi-account-search</v-icon>
+        <v-card-title class="pa-0 justify-center">{{items.NewLeads}}</v-card-title>
+        <p>Nouveaux leads</p>
+      </v-card>
+
+            <v-card outlined class="mb-5 mr-5 pt-3" width="20%">
+        <v-icon color="blue" class="pa-2">mdi-account-cash</v-icon>
+        <v-card-title class="pa-0 justify-center">{{items.PotentialValue}}€</v-card-title>
+        <p>Valeure potentielle</p>
+      </v-card>
+
+      
+
     </div>
-</div>
+  </div>
 </template>
 
 
 <script>
 import axios from "axios";
-    export default {
-        name: 'Informations',
+export default {
+  name: "Informations",
 
-        components: {
-        },
+  components: {},
 
-        data: () => ({
-                items: [], 
-                icon: "mdi-clock"
-            }
-
-        ),
-        beforeCreate() {
+  data: () => ({
+    items: [],
+    icon: "mdi-clock"
+  }),
+  beforeCreate() {
     axios
       .get("http://localhost:8085/home/5", {
         headers: {
@@ -58,20 +61,19 @@ import axios from "axios";
         }
       })
       .then(response => {
-        this.items = response.data;
-      });
+        this.items = response.data.data[0];
+      }).catch((error) => {
+        throw new Error('Problem getting ressource', error);
+    })
   },
 
-        methods: {
-        }
-    }
+  methods: {}
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    /* .row {
-        flex-wrap: nowrap;
-
-    } */
-
+.title {
+  color: #0af;
+  font-size: 1em !important;
+}
 </style>

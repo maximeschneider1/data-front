@@ -10,10 +10,10 @@
 </template>
 
 <script>
-  import Header from "../components/Header";
+  import Header from "../AppStructure/Header";
 
   export default {
-    name: 'PlanningView',
+    name: 'Settings',
     components: {
       Header
     }

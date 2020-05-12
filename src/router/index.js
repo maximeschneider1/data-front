@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../components/Home/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -13,37 +13,44 @@ const routes = [
   {
     path: '/clients',
     name: 'Clients',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Clients')
+    component: () => import(/* webpackChunkName: "about" */ '../components/Clients/Clients')
   },
+  { 
+    path: '/404', 
+    component: () => import(/* webpackChunkName: "about" */ '../components/AppStructure/404.vue') },
+  { 
+    path: '*', 
+    redirect: '/404' 
+  },  
   {
-    path: '/client-detail/:id',
+    path: '/clients/detail/:id',
     name: 'ClientDetail',
-    component: () => import(/* webpackChunkName: "about" */ '../views/ClientsDetail')
-  },
-  {
-    path: '/prospects/detail',
-    name: 'ProspectDetail',
-    component: () => import(/* webpackChunkName: "about" */ '../views/ProspectDetail.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../components/Clients/ClientsDetail')
   },
   {
     path: '/prospects',
     name: 'Prospects',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Prospects.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../components/Leads/Prospects.vue')
   },
   {
-    path: '/planning',
-    name: 'Planning',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Planning')
+    path: '/prospects/detail/:id',
+    name: 'ProspectDetail',
+    component: () => import(/* webpackChunkName: "about" */ '../components/Leads/ProspectDetail.vue')
   },
   {
     path: '/documentation',
     name: 'Documentation',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Documents')
+    component: () => import(/* webpackChunkName: "about" */ '../components/Documentation/Documents')
+  },
+  {
+    path: '/documentation/article',
+    name: 'Documentation',
+    component: () => import(/* webpackChunkName: "about" */ '../components/Documentation/Article')
   },
   {
     path: '/settings',
     name: 'Settings',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Settings')
+    component: () => import(/* webpackChunkName: "about" */ '../components/settings/Settings')
   },
 ]
 

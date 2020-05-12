@@ -6,13 +6,13 @@
                 :elevation=10 
                  class="nav-drawer"
                   :width="225"
-                  src="../assets/toolbarimg.png"
+                  src="../../assets/toolbarimg.png"
                 dark
                 permanent>
             <v-list  >
                 
                 <!-- <v-subheader >ENGIE MY SOLAR COACH</v-subheader> -->
-                <v-img height="100" src="../assets/engie-logo.png"></v-img>
+                <v-img class="ma-10" width="60%" src="../../assets/engie-logo.png"></v-img>
                 <v-list>
                 <v-list-item dark v-for="(item, io) in items" :key="io" :to="item.url" class="d-flex">
                     

@@ -36,7 +36,6 @@
 
 
 <script>
-
     export default {
         name: 'Planning',
 
@@ -47,9 +46,7 @@
                 ongoing: 'Démarche en cours',
                 icon: 'mdi-clock'
             }
-
         ),
-
         methods: {
         }
     }
@@ -59,7 +56,6 @@
 <style scoped>
     .elemStyle {
         overflow:auto
-        /*width: auto;*/
     }
 
 </style>

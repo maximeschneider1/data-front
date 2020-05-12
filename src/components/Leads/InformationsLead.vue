@@ -3,15 +3,12 @@
     <v-row>
       <v-col>
         <v-card-subtitle>Nom</v-card-subtitle>
-        <p>{{leadInfo.nom}}</p>
+        <p>{{leadInfo.Name}}</p>
         <v-card-subtitle>Adresse</v-card-subtitle>
         <p>{{leadInfo.address}}</p>
       </v-col>
 
       <v-col>
-          <v-card-subtitle>Ville</v-card-subtitle>
-          <p>{{leadInfo.City}}</p>
-
           <v-card-subtitle>Première prise de contact</v-card-subtitle>
           <p>{{leadInfo.FirstContact}}</p>
        </v-col>
@@ -41,17 +38,17 @@ export default {
 
   mounted() {
     axios
-      .get("http://localhost:8085/leads/info/1", {
+      .get("http://localhost:8085/leads/info/" + this.$route.params.id, {
         headers: {
           "content-Type": "application/json",
           Accept: "/"
         }
       })
       .then(response => {
-        this.leadInfo = response.data;
+        this.leadInfo = response.data.data[0];
 
         /* eslint-disable no-console */
-        console.log("les infos lead", this.leadInfo);
+        console.log("les infos lead", this.$route.params.id);
       });
   }
 };

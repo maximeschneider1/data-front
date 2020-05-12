@@ -23,22 +23,19 @@
           </v-row>
         </v-col>
       </div>
-
-      <!-- <Chat></Chat> -->
     </v-container>
   </v-content>
 </template>
 
 <script>
-// import Chat from "../components/Chat";
-import Alerts from "../components/Home/Alerts";
-import Header from "../components/Header";
-import ScoringOverview from "../components/Home/ScoringOverview";
-import InfoClient from "../components/Clients/InformationsClients";
+import Alerts from "./ClientsAlerts";
+import Header from "../AppStructure/Header";
+import ScoringOverview from "./Production";
+import InfoClient from "./InformationsClients";
 
-import KPIClients from "../components/Clients/KpiClient";
-import NoteClients from "../components/Clients/NoteClients";
-import Tag from "../components/Tag";
+import KPIClients from "./KpiClient";
+import NoteClients from "./NoteClients";
+import Tag from "./Tag";
 export default {
   components: {
     Alerts,
@@ -48,7 +45,6 @@ export default {
     NoteClients,
     Tag,
     Header
-    // Chat
   },
   data: () => ({
     items: [
@@ -112,10 +108,6 @@ export default {
   },
 
   methods: {
-    maFunc(i) {
-      // eslint-disable-next-line no-console
-      console.log("maxime", i);
-    },
     next() {
       this.loading = true;
 
@@ -133,12 +125,6 @@ export default {
 .aaa {
   width: 100%;
 }
-
-.colorz {
-  /* background-color: aqua; */
-}
-
-
 
 .actions {
 

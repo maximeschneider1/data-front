@@ -3,7 +3,7 @@
     <v-content fluid>
       <v-container class="container">
         <Header></Header>
-        <Informations></Informations>
+        <Informations class="ma-3"></Informations>
        <div class="d-md-flex d-xs-flex-column">
         <v-col cols="5">
           <Alerts isDetail=overview></Alerts>
@@ -23,10 +23,10 @@
 
 
 <script>
-  import Informations from "../components/Home/Informations";
-  import Alerts from "../components/Home/Alerts";
-  import Header from "../components/Header";
-  import Todo from "../components/Todo";
+  import Informations from "./Informations";
+  import Alerts from "./Alerts";
+  import Header from "../AppStructure/Header";
+  import Todo from "./Todo";
 
   export default {
     name: 'Home',
@@ -38,26 +38,13 @@
       Todo, 
     },
 
-    data: () => ({
-            }
-
+    data: () => ({}
     ),
 
     methods: {
     }
   }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-  /* .container {
-    height: 100vh;
-  }
-  .uuu {
-    width: 40%;
-  }
-  .aaa {
-    width: 60%;
-  } */
 </style>

@@ -1,30 +1,27 @@
 <template>
   <v-content>
     <v-container>
-      <Header></Header>
-
+      <Header/>
       <div class="d-md-flex d-xs-flex-column">
         <v-col cols="5">
-          <Alerts isDetail="overview"></Alerts>
+          <Alerts isDetail="overview"/>
         </v-col>
-
-        <v-spacer></v-spacer>
+        <v-spacer/>
         <v-col cols="7">
-          <Todo></Todo>
+          <Todo/>
         </v-col>
       </div>
-
-      <v-card class="pa-5 ma-5">
+      <v-card-subtitle class="ml-5 mt-5 pa-0 title">Liste de vos clients</v-card-subtitle>
+      <v-card outlined class="pa-5 ma-5">
         <v-card-title>
-          Liste de vos clients
-          <v-spacer></v-spacer>
+          <v-spacer/>
           <v-text-field
             v-model="search"
             append-icon="mdi-magnify"
             label="Search"
             single-line
             hide-details
-          ></v-text-field>
+          />
         </v-card-title>
         <v-data-table
           class="dataTable"
@@ -32,16 +29,16 @@
           :items="clients"
           @click:row="handleClick"
           :search="search"
-        ></v-data-table>
+        />
       </v-card>
     </v-container>
   </v-content>
 </template>
 <script>
-import Header from "../components/Header";
+import Header from "../AppStructure/Header";
 import axios from "axios";
-import Alerts from "../components/Home/Alerts";
-import Todo from "../components/Todo";
+import Alerts from "../Home/Alerts";
+import Todo from "../Clients/TodoClients";
 
 export default {
   name: "Clients",
@@ -53,46 +50,34 @@ export default {
 
   data() {
     return {
-      url: "instagram.com",
       search: "",
       headers: [
         {
           align: "start",
           sortable: false,
-          value: "name"
         },
-        { text: "Nom", value: "nom" },
+        { text: "Nom", value: "name" },
         { text: "Phone", value: "phone" },
-        { text: "Ville", value: "challengesDone" },
-        { text: "Score Client", value: "address" }
-        // { text: 'Actions', value: 'actions', sortable: false },
-        // { text: "Iron (%)", value: "iron" }
+        { text: "Ville", value: "address" },
+        { text: "Score Client", value: "score" }
       ],
-      clients: [
-        {
-          // protein: 4.0,
-          // iron: "1%"
-        }
-      ]
+      clients: []
     };
   },
   methods: {
     handleClick(value) {
-      /* eslint-disable no-console */
-      console.log("Ligne :", value.client_id);
-      window.location.href = "/client-detail/" + value.client_id;
+      window.location.href = "/clients/detail/" + value.client_id;
     }
   },
   mounted() {
-    axios
-      .get("http://localhost:8085/clients/1", {
+    axios.get("http://localhost:8085/clients_list/1", {
         headers: {
           "content-Type": "application/json",
           Accept: "/"
         }
       })
       .then(response => {
-        this.clients = response.data;
+        this.clients = response.data.data[0];
       });
   }
 };
@@ -102,4 +87,10 @@ export default {
 .dataTable {
   cursor: pointer;
 }
+.v-application .title {
+  text-align: left;
+  color: #0af !important;
+  font-size: 1em !important;
+}
+
 </style>

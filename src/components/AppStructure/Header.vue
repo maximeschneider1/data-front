@@ -1,4 +1,5 @@
 <template>
+<div>
     <v-row>
 
         <v-subheader>Lundi 30 mars 2020</v-subheader>
@@ -6,11 +7,14 @@
        <v-subheader>Jean Michel</v-subheader>
         <v-avatar>
       <img
-        src="../assets/coffin-man.png"
+        src="../../assets/coffin-man.png"
         alt="John"
       >
     </v-avatar>
+    
     </v-row>
+    <v-divider class="mt-2 mb-5"></v-divider>
+    </div>
 </template>
 
 

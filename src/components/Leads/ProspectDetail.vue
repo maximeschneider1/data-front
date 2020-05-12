@@ -2,10 +2,8 @@
   <v-content>
     <v-container class="container">
       <Header></Header>
-
-
-      <v-stepper value="3" class="mx-3 mt-1" alt-labels>
-        <v-stepper-header class="stepper-container pa-0">
+      <v-stepper value="3" class="mx-3" alt-labels>
+        <v-stepper-header class="stepper-container">
           <v-stepper-step step="1" complete >
             <p class="stepper">1er mail</p>
           </v-stepper-step>
@@ -34,7 +32,6 @@
         </v-stepper-header>
       </v-stepper>
 
-
       <div class="d-flex">
         <v-col cols="3" >
           <InfoLeadName></InfoLeadName>
@@ -61,12 +58,12 @@
 <script>
 // import Chat from "../components/Chat";
 // import Alerts from "../components/Home/Alerts";
-import Header from "../components/Header";
-import InfoLeadName from "../components/Leads/InformationsLeadName";
-import KPILead from "../components/Leads/KpiLead";
-import NoteLead from "../components/Leads/NoteLead";
-import LeadTag from "../components/Leads/LeadTag";
-import ContactHistory from "../components/Leads/ContactHistory";
+import Header from "../AppStructure/Header";
+import InfoLeadName from "./InformationsLeadName";
+import KPILead from "./KpiLead";
+import NoteLead from "./NoteLead";
+import LeadTag from "./LeadTag";
+import ContactHistory from "./ContactHistory";
 export default {
   components: {
     // Alerts,
@@ -160,11 +157,16 @@ export default {
 .stepper {
   text-align: center;
   font-size: 0.8em;
+  margin: 0px;
+
 }
 .v-stepper{
-  height: 12vh;
     box-shadow: none;
     border: thin solid rgba(0, 0, 0, 0.12);
+    /*padding: 1%;*/
+}
+.v-stepper__header {
+  box-shadow: none !important;
 }
 
 </style>

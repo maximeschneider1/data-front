@@ -52,7 +52,9 @@ export default {
         }
       })
       .then(response => {
-        this.items = response.data;
+        /* eslint-disable no-console */
+        console.log("les infos lead", response);
+        this.items = response.data.data[0];
       });
   },
 
