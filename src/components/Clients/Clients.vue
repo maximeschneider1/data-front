@@ -14,6 +14,7 @@
       <v-card-subtitle class="ml-5 mt-5 pa-0 title">Liste de vos clients</v-card-subtitle>
       <v-card outlined class="pa-5 ma-5">
         <v-card-title>
+          <v-btn class="ml-5" color="#0af" rounded depressed dark>+</v-btn>
           <v-spacer/>
           <v-text-field
             v-model="search"

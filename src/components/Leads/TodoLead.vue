@@ -25,9 +25,7 @@
         <v-subheader>
           <b></b>
         </v-subheader>
-        <v-subheader>
-          <b></b>
-        </v-subheader>
+        <v-btn color="#0af" rounded depressed dark>+</v-btn>
       </v-row>
 
       <v-row v-for="(items, i) in items" :key="i" class="todo-container">

@@ -1,9 +1,9 @@
 <template>
   <v-card outlined class="pa-5 overflow-auto">
     <v-row>
-      <v-card-subtitle class="title">Tags client</v-card-subtitle>
+      <v-card-subtitle class="title">Tags du prospect</v-card-subtitle>
       <v-spacer></v-spacer>
-      <v-btn color="primary" dark @click.stop="dialog = true">+</v-btn>
+      <v-btn color="#0af" rounded  dark @click.stop="dialog = true">+</v-btn>
     </v-row>
     <div class="d-flex flex-wrap">
       <v-list v-for="(items, i) in items" :key="i">

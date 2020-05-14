@@ -4,10 +4,10 @@
 
         <v-subheader>Lundi 30 mars 2020</v-subheader>
         <v-spacer></v-spacer>
-       <v-subheader>Jean Michel</v-subheader>
+       <v-subheader>Antoine Duhamel</v-subheader>
         <v-avatar>
       <img
-        src="../../assets/coffin-man.png"
+        src="../../assets/conseiller-engie.png"
         alt="John"
       >
     </v-avatar>

@@ -28,7 +28,7 @@
                         height="150px"
                         width="250"
                       ></v-img>
-                      <v-card-title v-text="panneaux.text"></v-card-title>
+                      <v-card-title v-text="panneaux.text" class="article"></v-card-title>
                     </v-card>
                   </div>
                 </v-tab-item>
@@ -41,7 +41,7 @@
                         height="150px"
                         width="250"
                       ></v-img>
-                      <v-card-title v-text="coaching.text"></v-card-title>
+                      <v-card-title v-text="coaching.text" class="article"></v-card-title>
                     </v-card>
                   </div>
                 </v-tab-item>
@@ -89,7 +89,7 @@ export default {
       panneaux: [
         {
           id: 1,
-          text: "Panneaux solaire EC2",
+          text: "Panneaux IBC Solar : Qu'est ce qui change cette année ?",
           icon: "mdi-nature"
         },
         {
@@ -111,44 +111,44 @@ export default {
       marketing: [
         {
           id: 1,
-          text: "Market",
+          text: "Recommandez l'offre Lioo",
           icon: "mdi-nature"
         },
         {
           id: 2,
-          text: "Vendez plus",
+          text: "Les tendances clients de 2020",
           icon: "mdi-glass-wine"
         },
         {
           id: 3,
-          text: "Le pétrole ? !",
+          text: "Apprennez à vos clients le solar hacking",
           icon: "mdi-glass-wine"
         },
         {
           id: 4,
-          text: "ARGENT",
+          text: "Des nouvelles de la chaine Youtube",
           icon: "mdi-glass-wine"
         }
       ],
       coaching: [
         {
           id: 1,
-          text: "Nature",
+          text: "Apprennez à vos clients le solar hacking",
           icon: "mdi-nature"
         },
         {
           id: 2,
-          text: "Coach",
+          text: "Les basiques de l'autoconsommation",
           icon: "mdi-glass-wine"
         },
         {
           id: 3,
-          text: "Coach",
+          text: "Un nouveau type d'ampoule EC2",
           icon: "mdi-glass-wine"
         },
         {
           id: 4,
-          text: "Coach",
+          text: "IBC Solar transmets ses recommandations 2020",
           icon: "mdi-glass-wine"
         }
       ]
@@ -162,5 +162,6 @@ export default {
   .article {
     max-width: 300px;
     text-align: left;
+    word-break: normal;
   }
 </style>

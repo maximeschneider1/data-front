@@ -6,7 +6,7 @@
     <v-card-title class>{{infos.name}}</v-card-title>
     <v-card-subtitle>{{infos.Email}}</v-card-subtitle>
     <v-card-subtitle>{{infos.phone}}</v-card-subtitle>
-    <v-btn :elevation="0" color="primary" class="ma-3">
+    <v-btn :elevation="0" depressed color="#0af" dark class="ma-3">
       <v-icon left>{{ icons.facture }}</v-icon>Facture
     </v-btn>
     <v-divider></v-divider>

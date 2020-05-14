@@ -69,4 +69,7 @@ export default {
   .color-row {
     background-color: aliceblue;
   }
+  .row-element {
+    width: 30%;
+  }
 </style>

@@ -23,10 +23,7 @@
           <b></b>
         </v-subheader>
         <v-subheader>
-          <b></b>
-        </v-subheader>
-        <v-subheader>
-          <b></b>
+          <v-btn color="#0af" rounded depressed dark>+</v-btn>
         </v-subheader>
       </v-row>
 

@@ -3,7 +3,7 @@
     <v-row>
       <v-subheader class="pa-200 title">Tags client</v-subheader>
       <v-spacer></v-spacer>
-      <v-btn depressed color="primary" dark @click.stop="dialog = true">+</v-btn>
+      <v-btn depressed color="#0af" dark @click.stop="dialog = true">+</v-btn>
     </v-row>
     <div class="d-flex flex-wrap">
       <v-list v-for="(items, i) in items" :key="i">

@@ -4,30 +4,30 @@
       <Header></Header>
       <v-stepper value="3" class="mx-3" alt-labels>
         <v-stepper-header class="stepper-container">
-          <v-stepper-step step="1" complete >
-            <p class="stepper">1er mail</p>
+          <v-stepper-step step="1" complete color="#0af">
+            <p class="stepper">Découverte</p>
           </v-stepper-step>
 
           <v-divider></v-divider>
 
-          <v-stepper-step step="2" complete>
-            <p class="stepper">1er mail</p>
+          <v-stepper-step step="2" complete color="#0af">
+            <p class="stepper">Compatibilité</p>
           </v-stepper-step>
 
           <v-divider></v-divider>
-          <v-stepper-step step="3" complete>
-            <p class="stepper">1er mail</p>
+          <v-stepper-step step="3" complete color="#0af">
+            <p class="stepper">Devis</p>
           </v-stepper-step>
 
           <v-divider></v-divider>
-          <v-stepper-step step="4">
-            <p class="stepper">1er mail</p>
+          <v-stepper-step step="4" color="#0af">
+            <p class="stepper">Signature</p>
           </v-stepper-step>
 
           <v-divider></v-divider>
 
-          <v-stepper-step step="5">
-            <p class="stepper">1er mail</p>
+          <v-stepper-step step="5" color="#0af">
+            <p class="stepper">Installation</p>
           </v-stepper-step>
         </v-stepper-header>
       </v-stepper>
